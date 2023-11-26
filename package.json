@@ -1,14 +1,32 @@
 {
   "name": "@duorun/maybe",
-  "module": "index.ts",
   "type": "module",
+  "source": "./index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "esmodule": "dist/index.mjs",
+  "umd:main": "dist/index.umd.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.module.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
   "devDependencies": {
     "bun-types": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "browserslist": [
+    "last 2 years",
+    "node >= 12"
+  ],
   "scripts": {
-    "build": "bun build ./index.ts --outdir ./dist"
+    "build": "microbundle build --entry ./index.ts --name @duorun/maybe --tsconfig tsconfig.json --compress false"
   }
 }
