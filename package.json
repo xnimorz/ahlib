@@ -1,5 +1,7 @@
 {
   "name": "@duorun/maybe",
+  "version": "0.0.1",
+  "description": "Simple and small Maybe monad",
   "type": "module",
   "source": "./index.ts",
   "main": "dist/index.js",
@@ -22,9 +24,27 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xnimorz/maybe.git"
+  },
   "browserslist": [
     "last 2 years",
     "node >= 12"
+  ],
+  "author": "Nik (nik@xnim.me)",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/xnimorz/maybe/issues"
+  },
+  "homepage": "https://github.com/xnimorz/maybe#readme",
+  "keywords": [
+    "monad",
+    "maybe",
+    "ts-maybe"
   ],
   "scripts": {
     "build": "microbundle build --entry ./index.ts --name @duorun/maybe --tsconfig tsconfig.json --compress false"
