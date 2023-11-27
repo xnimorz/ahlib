@@ -1,7 +1,7 @@
 {
   "name": "@duorun/maybe",
-  "version": "0.0.1",
-  "description": "Simple and small Maybe monad",
+  "version": "0.0.2",
+  "description": "Simple and typed Maybe monad",
   "type": "module",
   "source": "./index.ts",
   "main": "dist/index.js",
@@ -19,7 +19,9 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "bun-types": "latest"
+    "@size-limit/preset-small-lib": "^11.0.0",
+    "bun-types": "latest",
+    "size-limit": "^11.0.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -47,6 +49,13 @@
     "ts-maybe"
   ],
   "scripts": {
-    "build": "microbundle build --entry ./index.ts --name @duorun/maybe --tsconfig tsconfig.json --compress false"
-  }
+    "build": "microbundle build --entry ./index.ts --name @duorun/maybe --tsconfig tsconfig.json --compress false & bun run size-limit",
+    "prepublishOnly": "bun test & bun run build"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "270 B"
+    }
+  ]
 }

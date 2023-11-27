@@ -1,6 +1,7 @@
-const JUST = true as const;
+// Enum in TS wou  ld consume around 100 extra bytes of space
+const JUST = 1 as const;
 type TJust = typeof JUST;
-const NONE = false as const;
+const NONE = 0 as const;
 type TNone = typeof NONE;
 type STATE = TJust | TNone;
 
